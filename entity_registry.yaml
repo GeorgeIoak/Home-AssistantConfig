@@ -1,0 +1,21 @@
+light.drivewayleft:
+  platform: hue
+  unique_id: 00:17:88:01:10:45:d9:bb-0b
+light.front_door:
+  platform: hue
+  unique_id: 00:17:88:01:10:45:d6:92-0b
+light.drivewayright:
+  platform: hue
+  unique_id: 00:17:88:01:10:51:64:61-0b
+media_player.plex_web_internet_explorer:
+  platform: plex
+  unique_id: 1fclmfy1d25z3z2c1w88kzxk
+media_player.galaxy_s8:
+  platform: plex
+  unique_id: afacf1c0de0cee3a-com-plexapp-android
+media_player.apple_tv:
+  platform: apple_tv
+  unique_id: cb8128d0984ceddd6d40351db62e48312bcab65c9936be7fc5616f705178dcdd
+remote.apple_tv:
+  platform: apple_tv
+  unique_id: cb8128d0984ceddd6d40351db62e48312bcab65c9936be7fc5616f705178dcdd

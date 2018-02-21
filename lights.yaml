@@ -1,0 +1,25 @@
+- platform: mqtt
+  name: "Front Porch Strip"
+  state_topic: "smartthings/Porch RGB Strip Lights/switch/state"
+  command_topic: "smartthings/Porch RGB Strip Lights/switch"
+  retain: true
+  brightness_state_topic: "smartthings/Porch RGB Strip Lights/level"
+  brightness_command_topic: "smartthings/Porch RGB Strip Lights/level"
+  brightness_scale: 99
+  brightness_value_template: '{{ value }}'
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"
+
+- platform: mqtt
+  name: "Kitchen Table Light"
+  state_topic: "smartthings/Kitchen Table Light/switch/state"
+  command_topic: "smartthings/Kitchen Table Light/switch"
+  retain: true
+  brightness_state_topic: "smartthings/Kitchen Table Light/level"
+  brightness_command_topic: "smartthings/Kitchen Table Light/level"
+  brightness_scale: 99
+  brightness_value_template: '{{ value }}'
+  qos: 0
+  payload_on: "on"
+  payload_off: "off"

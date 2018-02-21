@@ -1,0 +1,142 @@
+Default_view:
+  name: My House
+  view: yes
+  entities:
+    - group.daily_forecast
+    - group.weather_conditions
+    - group.cameras
+    - group.house_lights
+
+Home Environment:
+  view: yes
+  entities:
+    - group.house_sensors
+
+Camera Statistics:
+  view: yes
+  entities:
+    - group.camera_information
+
+Outside:
+  view: yes
+  entities:
+    - group.front_yard
+
+Garage Stuff:
+  view: yes
+  entities:
+    - group.garage_afs
+    - input_select.afs_speed
+    - sensor.garage_temperature
+    - switch.garage_vacuum
+    - switch.st_garage_vacuum
+    - group.garage_vacuum
+
+daily_forecast:
+  name: Daily Forecast
+  entities:
+    - sensor.pws_weather_1d
+    - sensor.pws_weather_1n
+    - sensor.pws_weather_2d
+    - sensor.pws_weather_2n
+    - sensor.pws_weather_3d
+    - sensor.pws_weather_3n
+    - sensor.pws_weather_4d
+    - sensor.pws_weather_4n
+
+weather_conditions:
+  name: Current Weather
+  entities:
+    - sensor.pws_alerts
+    - sensor.pws_weather
+    - sensor.pws_temp_f
+    - sensor.pws_feelslike_f
+    - sensor.pws_wind_gust_mph
+    - sensor.pws_precip_today_in
+    - sensor.pws_temp_high_1d_f
+    - sensor.pws_temp_low_1d_f
+    - sensor.pws_wind_gust_1d_mph
+    - sensor.pws_precip_1d_in
+    - camera.sac_radar
+
+cameras:
+  name: House Cameras
+  control: hidden
+  entities:
+    - camera.front_door
+    - camera.front_stairs
+    - camera.left_driveway
+    - camera.garage
+    - camera.pond
+
+camera_information:
+  name: Camera Statistics
+  control: hidden
+  entities:
+    - sensor.captured_today_front_door
+    - sensor.last_front_door
+    - sensor.total_cameras_front_door
+    - sensor.battery_level_front_door
+    - sensor.signal_strength_front_door
+    - sensor.captured_today_front_stairs
+    - sensor.last_front_stairs
+    - sensor.total_cameras_front_stairs
+    - sensor.battery_level_front_stairs
+    - sensor.signal_strength_front_stairs
+    - sensor.captured_today_left_driveway
+    - sensor.last_left_driveway
+    - sensor.total_cameras_left_driveway
+    - sensor.battery_level_left_driveway
+    - sensor.signal_strength_left_driveway
+    - sensor.captured_today_garage
+    - sensor.last_garage
+    - sensor.total_cameras_garage
+    - sensor.battery_level_garage
+    - sensor.signal_strength_garage
+    - sensor.captured_today_pond
+    - sensor.last_pond
+    - sensor.total_cameras_pond
+    - sensor.battery_level_pond
+    - sensor.signal_strength_pond
+
+house_sensors:
+  name: Home Environment
+  control: hidden
+  entities:
+    - sensor.garage_temperature
+
+house_lights:
+  name: Inside Lights
+  control: hidden
+  entities:
+    - light.kitchen_table_light
+
+garage_afs:
+  name: Jet Air Filtration Unit
+  control: hidden
+  entities:
+    - switch.sonoff_power_1
+    - switch.sonoff_power_2
+    - switch.sonoff_power_3
+    - switch.sonoff_power_4
+
+front_yard:
+  name: Front Yard
+  control: hidden
+  entities:
+    - camera.front_door
+    - camera.front_stairs
+    - camera.left_driveway
+    - light.front_door
+    - light.drivewayright
+    - light.drivewayleft
+    - light.front_porch_strip
+
+garage_vacuum:
+  name: Garage Vacuum
+  control: hidden
+  entities:
+    - sensor.tp_link_amps
+    - sensor.tp_link_kw
+    - sensor.tp_link_volts
+    - sensor.tp_link_watts

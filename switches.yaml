@@ -1,0 +1,61 @@
+- platform: mqtt
+  name: "Sonoff power 1"
+  state_topic: "stat/sonoff/POWER1"
+  command_topic: "cmnd/sonoff/POWER1"
+  availability_topic: "tele/sonoff/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+- platform: mqtt
+  name: "Sonoff power 2"
+  state_topic: "stat/sonoff/POWER2"
+  command_topic: "cmnd/sonoff/POWER2"
+  availability_topic: "tele/sonoff/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+- platform: mqtt
+  name: "Sonoff power 3"
+  state_topic: "stat/sonoff/POWER3"
+  command_topic: "cmnd/sonoff/POWER3"
+  availability_topic: "tele/sonoff/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+- platform: mqtt
+  name: "Sonoff power 4"
+  state_topic: "stat/sonoff/POWER4"
+  command_topic: "cmnd/sonoff/POWER4"
+  availability_topic: "tele/sonoff/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: true
+
+- platform: tplink
+  name: "Garage Vacuum"
+  host: 192.168.10.64
+  emulated_hue: true
+
+- platform: mqtt
+  name: "ST Garage Vacuum"
+  state_topic: "smartthings/Vacuum/switch/state"
+  command_topic: "smartthings/Vacuum/switch"
+  retain: true
+  qos: 1
+  payload_on: "on"
+  payload_off: "off"

@@ -1,0 +1,9 @@
+afs_speed:
+  name: Jet AFS Speed
+  options:
+    - "NotON"
+    - "LOW"
+    - "MEDIUM"
+    - "HIGH"
+  icon: mdi:fan
+  initial: NotON

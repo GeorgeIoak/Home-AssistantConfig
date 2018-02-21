@@ -1,0 +1,143 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude_home
+  longitude: !secret longitude_home
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 55
+  # C for Celcius, F for Fahrenheit
+
+  temperature_unit: F
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Los_Angeles
+
+  customize_glob:
+    light.*:
+      custom_ui_state_card: state-card-custom-ui
+      state_card_mode: break-slider
+      stretch_slider: true
+      hide_control: false
+      theme: happy
+      slider_theme:
+        min: 10
+        max: 100
+        pin: true
+        off_when_min: false
+        report_when_not_changed: false
+#    cover.*:
+#      custom_ui_state_card: state-card-custom-ui
+  # Customization file
+  customize: !include customize.yaml
+
+#frontend:
+#  extra_html_url:
+#    - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui.html
+#  extra_html_url_es5:
+#    - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui-es5.html
+
+customizer:
+  custom_ui: local
+# Show links to resources in log and frontend
+#introduction:
+
+zone:
+  name: Home
+  latitude: !secret latitude_home
+  longitude: !secret longitude_home
+  radius: 200
+  icon: mdi:home
+
+# Enables configuration UI
+config:
+
+emulated_hue:
+  host_ip: 192.168.10.201
+
+hue:
+  bridges:
+    - host: 192.168.10.13
+
+mqtt:
+  broker: 192.168.10.201
+  port: 1883
+  client_id: home-assistant-1
+  keepalive: 60
+  #username: DVES_USER
+  #password: DVES_PASS
+  protocol: 3.1
+  discovery: true
+  discovery_prefix: smartthings
+  birth_message:
+    topic: "tele/hass1/LWT"
+    payload: "Online"
+    qos: 1
+    retain: true
+  will_message:
+    topic: "tele/hass1/LWT"
+    payload: "Offline"
+    qos: 1
+    retain: true
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  # api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+#logger:
+#  logs:
+#    homeassistant.components.mqtt: debug
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+# arlo cameras
+arlo:
+  username: !secret arlo_username
+  password: !secret arlo_password
+
+#alarm_control_panel:
+#  - platform: arlo
+
+group: !include groups.yaml
+automation: !include_dir_merge_list automation
+script: !include scripts.yaml
+switch: !include switches.yaml
+sensor: !include sensors.yaml
+light: !include lights.yaml
+camera: !include cameras.yaml
+input_select: !include input_select.yaml
