@@ -15,22 +15,29 @@ Home Environment:
 Camera Statistics:
   view: yes
   entities:
-    - group.camera_information
+    - group.camera_info_front_door
+    - group.camera_info_front_stairs
+    - group.camera_info_left_driveway
+    - group.camera_info_garage
+    - group.camera_info_pond
 
 Outside:
   view: yes
   entities:
     - group.front_yard
+    - group.choose_front_lights_color
+    - sun.sun
 
 Garage Stuff:
   view: yes
   entities:
     - group.garage_afs
-    - input_select.afs_speed
+    - group.jet_speed_control
     - sensor.garage_temperature
     - switch.garage_vacuum
     - switch.st_garage_vacuum
     - group.garage_vacuum
+    - camera.garage
 
 daily_forecast:
   name: Daily Forecast
@@ -69,32 +76,52 @@ cameras:
     - camera.garage
     - camera.pond
 
-camera_information:
-  name: Camera Statistics
+camera_info_front_door:
+  name: Front Door
   control: hidden
   entities:
-    - sensor.captured_today_front_door
     - sensor.last_front_door
+    - sensor.captured_today_front_door
     - sensor.total_cameras_front_door
     - sensor.battery_level_front_door
     - sensor.signal_strength_front_door
-    - sensor.captured_today_front_stairs
+
+camera_info_front_stairs:
+  name: Front Stairs
+  control: hidden
+  entities:
     - sensor.last_front_stairs
+    - sensor.captured_today_front_stairs
     - sensor.total_cameras_front_stairs
     - sensor.battery_level_front_stairs
     - sensor.signal_strength_front_stairs
-    - sensor.captured_today_left_driveway
+
+camera_info_left_driveway:
+  name: Left Driveway
+  control: hidden
+  entities:
     - sensor.last_left_driveway
+    - sensor.captured_today_left_driveway
     - sensor.total_cameras_left_driveway
     - sensor.battery_level_left_driveway
     - sensor.signal_strength_left_driveway
-    - sensor.captured_today_garage
+
+camera_info_garage:
+  name: Garage
+  control: hidden
+  entities:
     - sensor.last_garage
+    - sensor.captured_today_garage
     - sensor.total_cameras_garage
     - sensor.battery_level_garage
     - sensor.signal_strength_garage
-    - sensor.captured_today_pond
+
+camera_info_pond:
+  name: Pond
+  control: hidden
+  entities:
     - sensor.last_pond
+    - sensor.captured_today_pond
     - sensor.total_cameras_pond
     - sensor.battery_level_pond
     - sensor.signal_strength_pond
@@ -120,6 +147,12 @@ garage_afs:
     - switch.sonoff_power_3
     - switch.sonoff_power_4
 
+jet_speed_control:
+  name: Jet AFS Speed
+  control: hidden
+  entities:
+    - input_select.afs_speed
+
 front_yard:
   name: Front Yard
   control: hidden
@@ -127,6 +160,21 @@ front_yard:
     - camera.front_door
     - camera.front_stairs
     - camera.left_driveway
+    - light.front_door
+    - light.drivewayright
+    - light.drivewayleft
+    - light.front_porch_strip
+
+choose_front_lights_color:
+  name: Pick Front Lights Color
+  control: hidden
+  entities:
+    - input_select.front_light_color
+
+front_yard_lights:
+  name: Front Yard Lights
+  control: hidden
+  entities:
     - light.front_door
     - light.drivewayright
     - light.drivewayleft

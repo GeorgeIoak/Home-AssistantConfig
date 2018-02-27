@@ -1,0 +1,30 @@
+- alias: Set Front Lights Color
+  trigger:
+    platform: state
+    entity_id: input_select.front_light_color
+  condition:
+    condition: template
+    value_template: "{{ states('input_select.front_light_color') != 'Normal' }}"
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: group.front_yard_lights
+      color_name: "{{ states.input_select.front_light_color.state }}"
+
+- alias: Set Garage Bulb Color to Normal
+  trigger:
+    platform: state
+    entity_id: input_select.front_light_color
+  condition:
+    condition: template
+    value_template: "{{ is_state('input_select.front_light_color', 'Normal') }}"
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: group.front_yard_lights
+        color_temp: 245
+        brightness: 64
+#    - service: light.turn_on
+#      data:
+#        entity_id: light.front_porch_light
+#        brightness: 64

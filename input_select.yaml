@@ -7,3 +7,18 @@ afs_speed:
     - "HIGH"
   icon: mdi:fan
   initial: NotON
+
+front_light_color:
+  name: Change Colors of Lights
+  options:
+    - "Normal"
+    - "Red"
+    - "Orange"
+    - "Yellow"
+    - "Green"
+    - "Blue"
+    - "Indigo"
+    - "Violet"
+    - "Purple"
+  icon: mdi:lightbulb
+  initial: Normal

@@ -5,9 +5,9 @@ homeassistant:
   latitude: !secret latitude_home
   longitude: !secret longitude_home
   # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 55
-  # C for Celcius, F for Fahrenheit
+  elevation: 161
 
+  # C for Celcius, F for Fahrenheit
   temperature_unit: F
   # metric for Metric, imperial for Imperial
   unit_system: imperial
@@ -32,14 +32,17 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
-#frontend:
-#  extra_html_url:
-#    - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui.html
-#  extra_html_url_es5:
-#    - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui-es5.html
+frontend:
+  extra_html_url:
+    - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui.html
+#    - \www\custom_ui\state-card-custom-ui.html
+  extra_html_url_es5:
+    - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui-es5.html
+#    - \www\custom_ui\state-card-custom-ui-es5.html
 
 customizer:
-  custom_ui: local
+  custom_ui: hosted
+
 # Show links to resources in log and frontend
 #introduction:
 
@@ -83,9 +86,11 @@ mqtt:
 
 http:
   # Secrets are defined in the file secrets.yaml
-  # api_password: !secret http_password
+  api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  # base_url: example.duckdns.org:8123
+  base_url: ioak.noip.me:8123
+  ssl_certificate: C:\Users\Administrator\AppData\Roaming\.homeassistant\certificate.pem
+  ssl_key: C:\Users\Administrator\AppData\Roaming\.homeassistant\privkey.pem
 
 # Checks for available updates
 # Note: This component will send some information about your system to
