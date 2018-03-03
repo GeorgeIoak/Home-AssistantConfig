@@ -27,21 +27,25 @@ homeassistant:
         pin: true
         off_when_min: false
         report_when_not_changed: false
-#    cover.*:
-#      custom_ui_state_card: state-card-custom-ui
+    "*.*":
+      custom_ui_state_card: state-card-custom-ui
+
   # Customization file
   customize: !include customize.yaml
 
 frontend:
   extra_html_url:
-    - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui.html
-#    - \www\custom_ui\state-card-custom-ui.html
+  #  - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui.html
+    - /local/custom_ui/state-card-opensprinkler-control-station.html
+    - /local/custom_ui/state-card-opensprinkler-control-program.html
+    - /local/custom_ui/state-card-custom-ui.html
   extra_html_url_es5:
-    - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui-es5.html
-#    - \www\custom_ui\state-card-custom-ui-es5.html
+  #  - https://raw.githubusercontent.com/andrey-git/home-assistant-custom-ui/master/state-card-custom-ui-es5.html
+    - /local/custom_ui/state-card-custom-ui-es5.html
 
-customizer:
-  custom_ui: hosted
+#customizer:
+#  custom_ui: hosted
+  #custom_ui: local
 
 # Show links to resources in log and frontend
 #introduction:
@@ -127,8 +131,8 @@ sun:
 tts:
   - platform: google
 
-# Cloud
-cloud:
+# Cloud (I couldn't create an account)
+#cloud:
 
 # arlo cameras
 arlo:
@@ -137,6 +141,17 @@ arlo:
 
 #alarm_control_panel:
 #  - platform: arlo
+
+# OpenSprinkler Pi
+opensprinkler:
+  host: 192.168.10.230 #Need to change to 230 when ready
+  port: 8080
+  password: !secret opensprinkler
+
+# Needed for OpenSprinkler (for now)
+input_text:
+  scene_temp_var:
+    initial: 'off:1'
 
 group: !include groups.yaml
 automation: !include_dir_merge_list automation

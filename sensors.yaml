@@ -28,6 +28,13 @@
     - battery_level
     - signal_strength
 
+- platform: opensprinkler
+  monitored_conditions:
+    - opensprinkler_station
+    - opensprinkler_schedule
+    - opensprinkler_lastrun
+    - opensprinkler_rain
+
 - platform: mqtt
   name: "Garage Temperature"
   state_topic: "tele/sonoff/SENSOR"

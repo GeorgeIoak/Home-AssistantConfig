@@ -28,6 +28,12 @@ Outside:
     - group.choose_front_lights_color
     - sun.sun
 
+Landscape:
+  view: yes
+  entities:
+    - group.opensprinkler_status
+    - group.opensprinkler_controller
+
 Garage Stuff:
   view: yes
   entities:
@@ -188,3 +194,43 @@ garage_vacuum:
     - sensor.tp_link_kw
     - sensor.tp_link_volts
     - sensor.tp_link_watts
+
+opensprinkler_status:
+  name: Open Sprinkler
+  control: hidden
+  entities:
+    - sensor.os_lastrun
+    - sensor.os_rain
+    - sensor.os_schedule_1
+    - sensor.os_schedule_2
+    - sensor.os_schedule_3
+    - sensor.os_schedule_4
+      #continue with all your schedules
+    - sensor.os_station_1
+    - sensor.os_station_2
+    - sensor.os_station_3
+    - sensor.os_station_4
+    - sensor.os_station_5
+    - sensor.os_station_6
+    #- sensor.os_station_7
+    #- sensor.os_station_8
+    #- sensor.os_pump_1
+    #- sensor.os_pump_2
+
+opensprinkler_controller:
+  name: Open Sprinkler controller
+  control: hidden
+  entities:
+    - scene.os_program_1
+    - scene.os_program_2
+    - scene.os_program_3
+    - scene.os_program_4
+    #continue with all your schedules
+    - scene.os_station_1
+    - scene.os_station_2
+    - scene.os_station_3
+    - scene.os_station_4
+    - scene.os_station_5
+    - scene.os_station_6
+    #- scene.os_station_7
+    #- scene.os_station_8
