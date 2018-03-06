@@ -55,3 +55,16 @@
     tp_link_volts:
       value_template: '{{ states.switch.garage_vacuum.attributes["Voltage"] | replace(" V", "") | float }}'
       unit_of_measurement: 'V'
+
+#Time and Date Sensor
+- platform: time_date
+  display_options:
+    - 'date_time'
+
+- platform: uptime
+
+#- platform: command_line
+#  name: SSL certificate expiry
+#  unit_of_measurement: days
+#  scan_interval: 86400
+#  command: "ssl-cert-check -b -c /etc/letsencrypt/live/hassnuc.duckdns.org/cert.pem | awk '{ print $NF }'"

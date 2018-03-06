@@ -6,6 +6,7 @@ Default_view:
     - group.weather_conditions
     - group.cameras
     - group.house_lights
+    - group.hass_details
 
 Home Environment:
   view: yes
@@ -234,3 +235,9 @@ opensprinkler_controller:
     - scene.os_station_6
     #- scene.os_station_7
     #- scene.os_station_8
+
+HASS Details:
+    - sensor.time__date
+#    - sensor.hassuptime
+#    - sensor.ssl_certificate_expiry
+    - input_select.current_theme

@@ -22,3 +22,14 @@ front_light_color:
     - "Purple"
   icon: mdi:lightbulb
   initial: Normal
+
+current_theme:
+  name: 'Current Theme'
+  options:
+    - 'default'
+    - 'teal'
+    - 'darkorange'
+    - 'darkred'
+    - 'darkcyan'
+  initial: 'default'
+  icon: 'mdi:palette'
