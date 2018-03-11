@@ -205,7 +205,7 @@
       paper-item-selected_-_background-color: "var(--make-green)" #Selected Option in Dropdown
       paper-tabs-selection-bar-color: "var(--make-red)" #
       table-row-background-color: "var(--make-grey)" #Background color table
-      table-row-alternative-background-color: "var(--make-gery)" #second color table
+      table-row-alternative-background-color: "var(--make-grey)" #second color table
       #Font
       primary-font-family: "Gill Sans"
       paper-font-common-base_-_font-family: "var(--primary-font-family)"

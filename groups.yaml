@@ -41,6 +41,9 @@ Garage Stuff:
     - group.garage_afs
     - group.jet_speed_control
     - sensor.garage_temperature
+    - sensor.garage_humidity
+    - sensor.garage_pressure
+    - light.garage_status_light
     - switch.garage_vacuum
     - switch.st_garage_vacuum
     - group.garage_vacuum

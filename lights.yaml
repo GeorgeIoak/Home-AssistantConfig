@@ -27,3 +27,61 @@
   qos: 0
   payload_on: "on"
   payload_off: "off"
+
+# Placeholder for Tasmota WS2812 control via MQTT
+# Reference https://github.com/ardeus-ua/ha-tasmota
+# Interfaces to custom_components/lights/tasm.py
+
+# - platform: tasm
+#   name: "Garage WS2812 Ring"
+#   on_command_type: first
+#   state_topic: "stat/sonoff/POWER1"
+#   command_topic: "cmnd/sonoff/POWER1"
+#   brightness_state_topic: "stat/sonoff/RESULT"
+#   brightness_command_topic: "cmnd/sonoff/Dimmer"
+#   brightness_value_template: "{{ value_json.Dimmer }}"
+#   rgb_state_topic: "stat/sonoff/RESULT"
+#   rgb_command_topic: "cmnd/sonoff/Color2"
+#   rgb_value_template: "{{ value_json.Color }}"
+#   effect_command_topic: "cmnd/sonoff/Scheme"
+#   effect_state_topic: "stat/sonoff/RESULT"
+#   effect_value_template: "{{  value_json.Scheme  }}"
+#   qos: 0
+#   payload_on: "ON"
+#   payload_off: "OFF"
+#   optimistic: false
+
+- platform: mqtt
+  name: Garage Status Light
+  effect_list:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+  state_topic: "cmnd/sonoff/power5"
+  command_topic: "cmnd/sonoff/power5"
+  brightness_state_topic: "cmnd/sonoff/Dimmer"
+  brightness_command_topic: "cmnd/sonoff/Dimmer"
+  brightness_scale: 100
+  rgb_command_template: "{{ '%02x%02x%02x' | format(red, green, blue)}}"
+  rgb_state_topic: "cmnd/sonoff/Color"
+  rgb_command_topic: "cmnd/sonoff/Color"
+  effect_command_topic: "cmnd/sonoff/Scheme"
+  effect_state_topic: "cmnd/sonoff/Scheme"
+  state_value_template: "{{ value }}"
+  brightness_value_template: "{{ value }}"
+  effect_value_template: "{{ value }}"
+  rgb_command_mode: hex
+  retain: false
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"

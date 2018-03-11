@@ -38,8 +38,20 @@
 - platform: mqtt
   name: "Garage Temperature"
   state_topic: "tele/sonoff/SENSOR"
-  value_template: "{{ value_json['DS18B20'].Temperature }}"
+  value_template: "{{ value_json['BME280'].Temperature }}"
   unit_of_measurement: "°F"
+
+- platform: mqtt
+  name: "Garage Humidity"
+  state_topic: "tele/sonoff/SENSOR"
+  value_template: "{{ value_json['BME280'].Humidity }}"
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  name: "Garage Pressure"
+  state_topic: "tele/sonoff/SENSOR"
+  value_template: "{{ value_json['BME280'].Pressure | round(2) }}"
+  unit_of_measurement: "hPa"
 
 - platform: template
   sensors:
