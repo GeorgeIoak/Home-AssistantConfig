@@ -1,28 +1,28 @@
 #Control Garage Jet Air Filtration Unit
 
 - alias: AFS Off
-
   trigger:
     platform: state
     entity_id:
       - input_select.afs_speed
     to: "NotON"
-
   action:
     - service: switch.turn_off
       entity_id:
         - switch.sonoff_power_1
         - switch.sonoff_power_2
         - switch.sonoff_power_3
+        - switch.sonoff_power_5
+    - service: light.turn_off
+      entity_id:
+        - light.garage_status_light
 
 - alias: AFS Low Speed
-
   trigger:
     platform: state
     entity_id:
       - input_select.afs_speed
     to: "LOW"
-
   action:
     - service: switch.turn_off
       entity_id:
@@ -33,15 +33,21 @@
     - service: switch.turn_on
       entity_id:
         - switch.sonoff_power_1
+    - service: light.turn_on
+      entity_id:
+        - light.garage_status_light
+    - service: mqtt.publish
+      data_template:
+        topic: "cmnd/sonoff/pixels"
+        retain: "false"
+        payload: 4
 
 - alias: AFS Medium Speed
-
   trigger:
     platform: state
     entity_id:
       - input_select.afs_speed
     to: "MEDIUM"
-
   action:
     - service: switch.turn_off
       entity_id:
@@ -52,15 +58,22 @@
     - service: switch.turn_on
       entity_id:
         - switch.sonoff_power_2
+        - switch.sonoff_power_5
+    - service: light.turn_on
+      entity_id:
+        - light.garage_status_light
+    - service: mqtt.publish
+      data_template:
+        topic: "cmnd/sonoff/pixels"
+        retain: "false"
+        payload: 8
 
 - alias: AFS High Speed
-
   trigger:
     platform: state
     entity_id:
       - input_select.afs_speed
     to: "HIGH"
-
   action:
     - service: switch.turn_off
       entity_id:
@@ -71,3 +84,12 @@
     - service: switch.turn_on
       entity_id:
         - switch.sonoff_power_3
+        - switch.sonoff_power_5
+    - service: light.turn_on
+      entity_id:
+        - light.garage_status_light
+    - service: mqtt.publish
+      data_template:
+        topic: "cmnd/sonoff/pixels"
+        retain: "false"
+        payload: 12

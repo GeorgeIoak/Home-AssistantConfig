@@ -133,16 +133,19 @@ sun:
 tts:
   - platform: google
 
-# Cloud (I couldn't create an account)
+#Got a Python error so I'll need to debug
+  #google:
+#  client_id: !secret google_client_id
+#  client_secret: !secret google_client_secret
+  #track_new_calendar: true
+
+  # Cloud (I couldn't create an account)
 #cloud:
 
 # arlo cameras
 arlo:
   username: !secret arlo_username
   password: !secret arlo_password
-
-#alarm_control_panel:
-#  - platform: arlo
 
 # OpenSprinkler Pi
 opensprinkler:
