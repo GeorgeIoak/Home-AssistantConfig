@@ -1,0 +1,10 @@
+- alias: Pioneer Volume
+  trigger:
+    platform: state
+    entity_id: media_player.pioneer_receiver
+  action:
+    service: input_slider.select_value
+    data_template:
+      entity_id: input_slider.pioneer_volume
+      value: >
+        {{ states.media_player.pioneer_receiver.attributes.volume_level }}

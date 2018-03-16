@@ -147,6 +147,12 @@ arlo:
   username: !secret arlo_username
   password: !secret arlo_password
 
+media_player:
+  - platform: pioneer
+    host: 192.168.10.20
+    port: 23
+    name: Pioneer Receiver
+
 # OpenSprinkler Pi
 opensprinkler:
   host: 192.168.10.230 #Need to change to 230 when ready

@@ -13,6 +13,11 @@ Home Environment:
   entities:
     - group.house_sensors
 
+TV Room:
+  view: yes
+  entities:
+    - media_player.pioneer_receiver
+
 Camera Statistics:
   view: yes
   entities:

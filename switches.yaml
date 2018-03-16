@@ -46,10 +46,11 @@
   payload_not_available: "Offline"
   retain: true
 
-- platform: tplink
-  name: "Garage Vacuum"
-  host: 192.168.10.64
-  emulated_hue: true
+# TP Link switch is on Guest WiFi so can't access w/ direct method
+# - platform: tplink
+#   name: "Garage Vacuum"
+#   host: 192.168.10.64
+#   emulated_hue: true
 
 - platform: mqtt
   name: "ST Garage Vacuum"
