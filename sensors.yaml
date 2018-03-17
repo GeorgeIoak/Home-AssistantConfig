@@ -20,13 +20,13 @@
     - weather_4d
     - weather_4n
 
-- platform: arlo
-  monitored_conditions:
-    - captured_today
-    - last_capture
-    - total_cameras
-    - battery_level
-    - signal_strength
+# - platform: arlo #2018/03/17 Temperary Disable
+#   monitored_conditions:
+#     - captured_today
+#     - last_capture
+#     - total_cameras
+#     - battery_level
+#     - signal_strength
 
 - platform: opensprinkler
   monitored_conditions:

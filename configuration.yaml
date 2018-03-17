@@ -67,7 +67,7 @@ emulated_hue:
 
 hue:
   bridges:
-    - host: 192.168.10.13
+    - host: 192.168.10.10
 
 mqtt:
   broker: 192.168.10.201
@@ -142,10 +142,10 @@ tts:
   # Cloud (I couldn't create an account)
 #cloud:
 
-# arlo cameras
-arlo:
-  username: !secret arlo_username
-  password: !secret arlo_password
+# arlo cameras 2018/03/17 Temperary Disable
+# arlo:
+#   username: !secret arlo_username
+#   password: !secret arlo_password
 
 media_player:
   - platform: pioneer
