@@ -50,8 +50,8 @@
 - platform: mqtt
   name: "Garage Pressure"
   state_topic: "tele/sonoff/SENSOR"
-  value_template: "{{ value_json['BME280'].Pressure | round(2) }}"
-  unit_of_measurement: "hPa"
+  value_template: "{{ value_json['BME280'].Pressure * 0.02953337 | round(2) }}"
+  unit_of_measurement: "inHg"
 
 - platform: template
   sensors:
