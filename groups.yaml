@@ -45,13 +45,13 @@ Garage Stuff:
   entities:
     - group.jet_speed_control
     - switch.st_garage_vacuum
-    - group.garage_afs
     - sensor.garage_temperature
     - sensor.garage_humidity
     - sensor.garage_pressure
     - light.garage_status_light
+    - group.garage_afs
     - switch.garage_vacuum
-    - group.garage_vacuum
+    #- group.garage_vacuum
     - camera.garage
 
 daily_forecast:
